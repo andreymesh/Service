@@ -5,11 +5,43 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="resourses/css/index.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Hello World!0990</h1>
-        <c:forEach items="${category}" var="test">
-            <h3>${test.idcategory}   ${test.category}</h3>
-        </c:forEach>
+        <p><a href="<c:url value="/form"/>" target="_blank" class="button">Добавление</a>
+        <a href="<c:url value="/form"/>" target="_blank" class="button">Изменение</a>
+        <button>Удаление</button></p>
+        <table class="brd">
+            <tr class="thead">
+                 <th rowspan="2">Категория</th>
+                 <th rowspan="2">Краткое описание проблемы</th>
+                 <th rowspan="2">По гарантии</th>
+                 <th rowspan="2">Фирма-производитель</th>
+                 <th rowspan="2">Дата заявки</th>
+                 <th rowspan="2">Крайний срок</th>
+                 <th rowspan="2">Состояние заявки</th>
+                 <th rowspan="2">Ответственный за заявку</th>
+                 <th colspan="2">Данные клиента</th>
+             </tr>
+             <tr class="thead">
+                 <th>ФИО</th>
+                 <th>Телефон</th>
+             </tr>
+             <c:forEach items="${requests}" var="req">
+                 <tr data-request-id="${req.idrequest}" class="tbody">
+                     <th>${req.category.category}</th>
+                     <th>${req.shortDescription}</th>
+                     <th>${req.warranty}</th>
+                     <th>${req.company.companyName}</th>
+                     <th>${req.filingDate}</th>
+                     <th>${req.deadline}</th>
+                     <th>${req.status.statusName}</th>
+                     <th>${req.staff.fio}</th>
+                     <th>${req.clients.fio}</th>
+                     <th>${req.clients.telephone}</th>
+                 </tr>
+             </c:forEach>
+        </table>        
     </body>
 </html>

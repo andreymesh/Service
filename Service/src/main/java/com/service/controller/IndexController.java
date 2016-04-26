@@ -1,6 +1,7 @@
-package com.mycompany.service.controller;
+package com.service.controller;
 
-import com.mycompany.service.repository.CategoryRepository;
+import com.service.repository.CategoryRepository;
+import com.service.repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController {
     @Autowired
-    CategoryRepository categoryRepository;
+    RequestRepository requestRepository;
     
-    @RequestMapping (value = "/",method = RequestMethod.GET)
+    @RequestMapping (value = "/index",method = RequestMethod.GET)
     public String index(Model model){
-        model.addAttribute("category",categoryRepository.findAll());
+        model.addAttribute("requests",requestRepository.findAll());
         return "index";
     }
 }

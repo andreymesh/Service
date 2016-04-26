@@ -1,4 +1,4 @@
-package com.mycompany.service.entity;
+package com.service.entity;
 
 import java.util.List;
 import javax.persistence.*;
@@ -9,11 +9,11 @@ public class Status {
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    @Column (name="idstatus")
-    private Integer id_status;
+    @Column (name="id")
+    private Integer idStatus;
     
     @Column(name ="status_name",nullable = false,length = 45 )
-    private String status_name;
+    private String statusName;
 
     @OneToMany(mappedBy = "status")
     private List <Request> requests;
@@ -26,25 +26,24 @@ public class Status {
         this.requests = requests;
     }
     
-    public Integer getId_status() {
-        return id_status;
+    public Integer getIdStatus() {
+        return idStatus;
     }
 
-    public String getStatus_name() {
-        return status_name;
+    public void setIdStatus(Integer idStatus) {
+        this.idStatus = idStatus;
     }
 
-    public void setId_status(Integer id_status) {
-        this.id_status = id_status;
+    public String getStatusName() {
+        return statusName;
     }
 
-    public void setStatus_name(String status_name) {
-        this.status_name = status_name;
-    }
-
-    @Override
-    public String toString() {
-        return "Status: id="+id_status+"; status_name="+status_name;
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
     }
     
+    @Override
+    public String toString() {
+        return "Status: id="+idStatus+"; status_name="+statusName;
+    }
 }

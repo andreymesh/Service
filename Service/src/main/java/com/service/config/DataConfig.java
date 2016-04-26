@@ -1,4 +1,4 @@
-package com.mycompany.service.config;
+package com.service.config;
 
 import java.util.Properties;
 import javax.annotation.Resource;
@@ -15,7 +15,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.mycompany.service.repository")
+@EnableJpaRepositories(basePackages = "com.service.repository")
 @EnableTransactionManagement
 public class DataConfig {
     private static final String PROPERTY_DIALECT="hibernate.dialect";

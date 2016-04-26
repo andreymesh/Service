@@ -1,6 +1,6 @@
-package com.mycompany.service.repository;
+package com.service.repository;
 
-import com.mycompany.service.entity.Category;
+import com.service.entity.Category;
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 

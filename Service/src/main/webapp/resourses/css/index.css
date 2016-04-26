@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+}
+table th,
+table td {
+    padding: 0 3px;
+}
+table.brd th,
+table.brd td {
+    border: 1px solid #000;
+}
+.thead{
+    background-color: buttonface
+}
+.active{
+    background-color: #ccffcc
+}
+.tbody:hover{
+    background-color: #eeffee
+}
+.button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    
+    text-decoration: none;
+    color: initial;
+}

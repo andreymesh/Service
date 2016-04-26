@@ -1,4 +1,4 @@
-package com.mycompany.service.config;
+package com.service.config;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;

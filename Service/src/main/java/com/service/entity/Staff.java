@@ -1,4 +1,4 @@
-package com.mycompany.service.entity;
+package com.service.entity;
 
 import java.util.List;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ public class Staff {
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    @Column (name="idstaff")
+    @Column (name="id")
     private Integer idstaff;
     
     @Column(name="FIO",nullable = false,length = 80)

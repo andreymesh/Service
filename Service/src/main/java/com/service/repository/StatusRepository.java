@@ -1,6 +1,6 @@
-package com.mycompany.service.repository;
+package com.service.repository;
 
-import com.mycompany.service.entity.Status;
+import com.service.entity.Status;
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,4 +1,4 @@
-package com.mycompany.service.config;
+package com.service.config;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan (basePackages = "com.mycompany.service.controller")
+@ComponentScan (basePackages = "com.service.controller")
 public class WebConfig extends WebMvcConfigurerAdapter{
 
     @Override

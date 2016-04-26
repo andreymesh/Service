@@ -1,4 +1,4 @@
-package com.mycompany.service.entity;
+package com.service.entity;
 
 import java.util.List;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ public class Category {
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    @Column (name="idcategory")
+    @Column (name="id")
     private Integer idcategory;
     
     @Column(name="category_name",length = 80,nullable = false)
@@ -46,6 +46,4 @@ public class Category {
     public String toString() {
         return "Category: id="+idcategory+"; category="+category;
     }
-    
-    
 }

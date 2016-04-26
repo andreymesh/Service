@@ -1,4 +1,4 @@
-package com.mycompany.service.entity;
+package com.service.entity;
 
 import java.util.Date;
 import javax.persistence.*;
@@ -10,11 +10,11 @@ public class Request {
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    @Column (name="idrequest")
+    @Column (name="id")
     private Integer idrequest;
     
     @Column (name="short_description")
-    private String short_description;
+    private String shortDescription;
     
     @Column (name="description")
     private String description;
@@ -24,7 +24,7 @@ public class Request {
     
     @Column (name="filing_date")
     @Temporal (TemporalType.DATE)
-    private Date filing_date;
+    private Date filingDate;
     
     @Column (name="deadline")
     @Temporal (TemporalType.DATE)
@@ -69,19 +69,15 @@ public class Request {
     public String getDescription() {
         return description;
     }
-
-    public Date getFiling_date() {
-        return filing_date;
-    }
-
+    
     public Integer getIdrequest() {
         return idrequest;
     }
 
-    public String getShort_description() {
-        return short_description;
+    public String getShortDescription() {
+        return shortDescription;
     }
-
+    
     public Staff getStaff() {
         return staff;
     }
@@ -114,18 +110,22 @@ public class Request {
         this.description = description;
     }
 
-    public void setFiling_date(Date filing_date) {
-        this.filing_date = filing_date;
+    public Date getFilingDate() {
+        return filingDate;
     }
 
+    public void setFilingDate(Date filingDate) {
+        this.filingDate = filingDate;
+    }
+    
     public void setIdrequest(Integer idrequest) {
         this.idrequest = idrequest;
     }
 
-    public void setShort_description(String short_description) {
-        this.short_description = short_description;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
-
+    
     public void setStaff(Staff staff) {
         this.staff = staff;
     }
@@ -141,10 +141,10 @@ public class Request {
     @Override
     public String toString() {
         return "Request: id="+idrequest+"; category="+category+
-                "; short_description="+short_description+"; description="+
+                "; short_description="+shortDescription+"; description="+
                 description+";warranty="+warranty+";company="+
                 company+"; clients"+clients+"; filing_date="+
-                filing_date+"; deadline="+deadline+"; status="+
+                filingDate+"; deadline="+deadline+"; status="+
                 status+"; staff="+staff;
     }
     

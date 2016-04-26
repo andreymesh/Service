@@ -1,4 +1,4 @@
-package com.mycompany.service.entity;
+package com.service.entity;
 
 import java.util.List;
 import javax.persistence.*;
@@ -9,8 +9,8 @@ public class Clients {
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    @Column (name="idclients")
-    private Integer id_clients;
+    @Column (name="id")
+    private Integer idClients;
     
     @Column(name="FIO",nullable = false,length = 80)
     private String fio;
@@ -33,8 +33,8 @@ public class Clients {
         return fio;
     }
 
-    public Integer getId_clients() {
-        return id_clients;
+    public Integer getIdClients() {
+        return idClients;
     }
 
     public String getTelephone() {
@@ -45,8 +45,8 @@ public class Clients {
         this.fio = fio;
     }
 
-    public void setId_clients(Integer id_clients) {
-        this.id_clients = id_clients;
+    public void setIdClients(Integer idClients) {
+        this.idClients = idClients;
     }
 
     public void setTelephone(String telephone) {
@@ -55,6 +55,6 @@ public class Clients {
 
     @Override
     public String toString() {
-        return "Clients: id="+id_clients+"; FIO="+fio+"; telephone="+telephone;
+        return "Clients: id="+idClients+"; FIO="+fio+"; telephone="+telephone;
     }
 }

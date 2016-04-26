@@ -1,9 +1,19 @@
-package com.mycompany.service.test;
+package com.service.test;
 
-import com.mycompany.service.config.DataConfig;
-import com.mycompany.service.config.DataSourceConfig;
-import com.mycompany.service.entity.*;
-import com.mycompany.service.repository.*;
+import com.service.repository.StaffRepository;
+import com.service.repository.RequestRepository;
+import com.service.repository.ClientsRepository;
+import com.service.repository.CompanyRepository;
+import com.service.repository.CategoryRepository;
+import com.service.repository.StatusRepository;
+import com.service.entity.Clients;
+import com.service.entity.Staff;
+import com.service.entity.Company;
+import com.service.entity.Status;
+import com.service.entity.Category;
+import com.service.entity.Request;
+import com.service.config.DataConfig;
+import com.service.config.DataSourceConfig;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
