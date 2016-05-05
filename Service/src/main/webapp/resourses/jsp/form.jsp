@@ -5,16 +5,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="<c:url value="/resourses/js/update.js"></c:url>"></script>
     </head>
     <body>
-        <table>
+        <table data-request-id="${req==null ? "":req.id}">
             <tr>
                 <td>Категория</td>
                 <td>
-                    <select>
+                    <select id="categorys">
                         <c:forEach items="${categorys}" var="categ">
-                            <option <c:if test="${req!=null && req.category.idcategory==categ.idcategory}"> 
-                                    selected="selected" </c:if> value="${categ.idcategory}">
+                            <option <c:if test="${req!=null && req.category.id==categ.id}"> 
+                                    selected="selected" </c:if> value="${categ.id}">
                                 ${categ.category}</option>
                         </c:forEach>
                     </select>
@@ -23,26 +25,26 @@
             <tr>
                 <td>Краткое описание проблемы</td>
                 <td>
-                    <textarea rows="2" cols="20" name="text"><c:if test="${req!=null}">${req.shortDescription}</c:if>
+                    <textarea id="shortdesc" rows="2" cols="20" name="text"><c:if test="${req!=null}">${req.shortDescription}</c:if>
                     </textarea>
                 </td>
             </tr>
             <tr>
                 <td>Детальное описание проблемы</td>
                 <td>
-                    <textarea rows="5" cols="20" name="text"><c:if test="${req!=null}">${req.description}</c:if>
+                    <textarea id="desc" rows="5" cols="20" name="text"><c:if test="${req!=null}">${req.description}</c:if>
                     </textarea>
                 </td>
             </tr>
             <tr>
                 <td>По гарантии</td>
-                <td><input type="checkbox" <c:if test="${req!=null && req.warranty}">
+                <td><input id="warranty" type="checkbox" <c:if test="${req!=null && req.warranty}">
                        checked</c:if>></td>
             </tr>
             <tr>
                 <td>Фирма-производитель</td>
                 <td>
-                    <input type="text"
+                    <input id="company" type="text"
                         <c:if test="${req!=null}"> value="${req.company.companyName}"</c:if>
                         >
                 </td>
@@ -50,11 +52,11 @@
             <tr>
                 <td>Состояние заявки</td>
                 <td>
-                    <select>
+                    <select id="status">
                         <c:forEach items="${status}" var="stat">
                             <option <c:if test="${req!=null && 
-                                                  req.status.idStatus==stat.idStatus}"> 
-                                      selected="selected" </c:if> value="${stat.idStatus}"
+                                                  req.status.id==stat.id}"> 
+                                      selected="selected" </c:if> value="${stat.id}"
                                 >${stat.statusName}</option>
                         </c:forEach>
                     </select>
@@ -63,11 +65,11 @@
             <tr>
                 <td>Ответственный за заявку</td>
                 <td>
-                    <select>
+                    <select id="staff">
                         <c:forEach items="${staff}" var="personal">
                             <option <c:if test="${req!=null && 
-                                                  req.staff.idstaff==personal.idstaff}">
-                                      selected="selected" </c:if> value="${personal.idstaff}" >${personal.fio}</option>
+                                                  req.staff.id==personal.id}">
+                                      selected="selected" </c:if> value="${personal.id}" >${personal.fio}</option>
                         </c:forEach>
                     </select>
                 </td>
@@ -75,18 +77,17 @@
             <tr>
                 <td rowspan="2">Данные клиента</td>
                 <td>
-                    ФИО: <input type="text" 
+                    ФИО: <input id="client" type="text" 
                     <c:if test="${req!=null}"> value="${req.clients.fio}" </c:if>>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Телефон:<input type="text" 
+                    Телефон:<input id="telephone" type="text" 
                     <c:if test="${req!=null}"> value="${req.clients.telephone}" </c:if>>
                 </td>
             </tr>
         </table>
-        <button type="button">
-            <a href="<c:url value="/index"/>" target="_blank">Сохранить</a></button>
+                <button type="button" onclick="updateRequest();">Сохранить</button>
     </body>
 </html>

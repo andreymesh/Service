@@ -10,7 +10,7 @@ public class Staff {
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name="id")
-    private Integer idstaff;
+    private Integer id;
     
     @Column(name="FIO",nullable = false,length = 80)
     private String fio;
@@ -30,20 +30,20 @@ public class Staff {
         return fio;
     }
 
-    public Integer getIdstaff() {
-        return idstaff;
+    public Integer getId() {
+        return id;
     }
-
+    
     public void setFio(String fio) {
         this.fio = fio;
     }
 
-    public void setIdstaff(Integer idstaff) {
-        this.idstaff = idstaff;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
+    
     @Override
     public String toString() {
-        return "Staff: id="+idstaff+"; FIO="+fio;
+        return "Staff: id="+id+"; FIO="+fio;
     }
 }

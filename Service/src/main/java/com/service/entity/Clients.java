@@ -10,7 +10,7 @@ public class Clients {
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name="id")
-    private Integer idClients;
+    private Integer id;
     
     @Column(name="FIO",nullable = false,length = 80)
     private String fio;
@@ -20,6 +20,15 @@ public class Clients {
 
     @OneToMany (mappedBy = "clients")
     private List <Request> requests;
+
+    public Clients() {
+    }
+
+    public Clients(String fio, String telephone) {
+        this.fio = fio;
+        this.telephone = telephone;
+    }
+    
 
     public List<Request> getRequests() {
         return requests;
@@ -33,10 +42,6 @@ public class Clients {
         return fio;
     }
 
-    public Integer getIdClients() {
-        return idClients;
-    }
-
     public String getTelephone() {
         return telephone;
     }
@@ -44,17 +49,21 @@ public class Clients {
     public void setFio(String fio) {
         this.fio = fio;
     }
-
-    public void setIdClients(Integer idClients) {
-        this.idClients = idClients;
-    }
-
+    
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
     @Override
     public String toString() {
-        return "Clients: id="+idClients+"; FIO="+fio+"; telephone="+telephone;
+        return "Clients: id="+id+"; FIO="+fio+"; telephone="+telephone;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }   
 }

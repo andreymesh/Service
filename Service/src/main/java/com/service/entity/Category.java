@@ -10,7 +10,7 @@ public class Category {
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name="id")
-    private Integer idcategory;
+    private Integer id;
     
     @Column(name="category_name",length = 80,nullable = false)
     private String category;
@@ -30,20 +30,21 @@ public class Category {
         return category;
     }
 
-    public Integer getIdcategory() {
-        return idcategory;
+    public Integer getId() {
+        return id;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
 
     public void setCategory(String category) {
         this.category = category;
     }
 
-    public void setIdcategory(Integer idcategory) {
-        this.idcategory = idcategory;
-    }
-
     @Override
     public String toString() {
-        return "Category: id="+idcategory+"; category="+category;
+        return "Category: id="+id+"; category="+category;
     }
 }

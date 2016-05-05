@@ -1,9 +1,11 @@
 package com.service.config;
 
+import com.fasterxml.jackson.core.JsonEncoding;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 @Configuration
 @EnableWebMvc
@@ -29,6 +32,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         Map <String,MediaType> mediatype=new HashMap<>();
         mediatype.put("html", MediaType.TEXT_HTML);
+        mediatype.put("json", MediaType.APPLICATION_JSON);
         configurer.mediaTypes(mediatype);
     }
 
@@ -59,7 +63,18 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         resolver.setContentNegotiationManager(manager);
         List <ViewResolver> resolvers=new ArrayList<>();
         resolvers.add(internalResourceViewResolver());
+        resolvers.add(jsonViewResolver());
         resolver.setViewResolvers(resolvers);
         return resolver;
+    }
+    
+    @Bean
+    public ViewResolver jsonViewResolver()
+    {
+        return (String viewName, Locale locale)->
+        {MappingJackson2JsonView view=new MappingJackson2JsonView();
+        view.setPrettyPrint(true);
+        view.setEncoding(JsonEncoding.UTF8);
+        return view;};
     }
 }

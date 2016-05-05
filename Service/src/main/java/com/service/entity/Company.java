@@ -10,7 +10,7 @@ public class Company {
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name="id")
-    private Integer idcompany;
+    private Integer id;
     
     @Column (name = "company_name",nullable = false,length = 60)
     private String companyName;
@@ -26,10 +26,6 @@ public class Company {
         this.requests = requests;
     }
     
-    public Integer getIdcompany() {
-        return idcompany;
-    }
-
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
@@ -38,12 +34,17 @@ public class Company {
         return companyName;
     }
     
-    public void setIdcompany(Integer idcompany) {
-        this.idcompany = idcompany;
-    }
 
     @Override
     public String toString() {
-        return "Company: id="+idcompany+"; company_name="+companyName;
+        return "Company: id="+id+"; company_name="+companyName;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

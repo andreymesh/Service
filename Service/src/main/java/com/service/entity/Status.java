@@ -10,7 +10,7 @@ public class Status {
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name="id")
-    private Integer idStatus;
+    private Integer id;
     
     @Column(name ="status_name",nullable = false,length = 45 )
     private String statusName;
@@ -25,15 +25,15 @@ public class Status {
     public void setRequests(List<Request> requests) {
         this.requests = requests;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
     
-    public Integer getIdStatus() {
-        return idStatus;
-    }
-
-    public void setIdStatus(Integer idStatus) {
-        this.idStatus = idStatus;
-    }
-
     public String getStatusName() {
         return statusName;
     }
@@ -44,6 +44,6 @@ public class Status {
     
     @Override
     public String toString() {
-        return "Status: id="+idStatus+"; status_name="+statusName;
+        return "Status: id="+id+"; status_name="+statusName;
     }
 }

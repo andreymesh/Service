@@ -13,7 +13,7 @@ public class IndexController {
     @Autowired
     RequestRepository requestRepository;
     
-    @RequestMapping (value = "/index",method = RequestMethod.GET)
+    @RequestMapping (value = "/",method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("requests",requestRepository.findAll());
         return "index";

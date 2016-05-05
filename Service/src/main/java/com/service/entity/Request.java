@@ -11,7 +11,7 @@ public class Request {
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name="id")
-    private Integer idrequest;
+    private Integer id;
     
     @Column (name="short_description")
     private String shortDescription;
@@ -69,11 +69,15 @@ public class Request {
     public String getDescription() {
         return description;
     }
-    
-    public Integer getIdrequest() {
-        return idrequest;
+
+    public Integer getId() {
+        return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public String getShortDescription() {
         return shortDescription;
     }
@@ -117,10 +121,6 @@ public class Request {
     public void setFilingDate(Date filingDate) {
         this.filingDate = filingDate;
     }
-    
-    public void setIdrequest(Integer idrequest) {
-        this.idrequest = idrequest;
-    }
 
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
@@ -140,7 +140,7 @@ public class Request {
 
     @Override
     public String toString() {
-        return "Request: id="+idrequest+"; category="+category+
+        return "Request: id="+id+"; category="+category+
                 "; short_description="+shortDescription+"; description="+
                 description+";warranty="+warranty+";company="+
                 company+"; clients"+clients+"; filing_date="+
